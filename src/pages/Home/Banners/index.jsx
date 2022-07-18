@@ -135,40 +135,6 @@ const renderBtnBannersPage5 = () => {
             </div>
             <div className="swiper-pagination"></div>
         </div>
-        {/* <div>
-            <ul className="icon">
-                <li className="icon-item">
-                    <div className="icon-img-top">
-                        <img src="https://dsfs.oppo.com/archives/202205/202205181205436283cb1f48291.png?_w_=96&_h_=96&x-oss-process=image/format,webp" alt="" />
-                        </div>
-                    <div className="icon-text-bottom"></div>
-                </li>
-                <li className="icon-item">
-                    <div className="icon-img-top">
-                        <img src="" alt="" />
-                        </div>
-                    <div className="icon-text-bottom"></div>
-                </li>
-                <li className="icon-item">
-                    <div className="icon-img-top">
-                        <img src="" alt="" />
-                        </div>
-                    <div className="icon-text-bottom"></div>
-                </li>
-                <li className="icon-item">
-                    <div className="icon-img-top">
-                        <img src="" alt="" />
-                        </div>
-                    <div className="icon-text-bottom"></div>
-                </li>
-                <li className="icon-item">
-                    <div className="icon-img-top">
-                        <img src="" alt="" />
-                        </div>
-                    <div className="icon-text-bottom"></div>
-                </li>
-            </ul>
-        </div> */}
     </BannersWrapper>
   )
 }
