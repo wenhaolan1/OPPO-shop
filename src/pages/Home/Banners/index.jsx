@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { memo, useEffect } from 'react'
 import propTypes from 'prop-types'
 import './style'
 import { BannersWrapper } from './style'
 import Swiper from 'swiper'
 import { Link } from 'react-router-dom'
 
-export default function Banners({banners}) {
+ function Banners({bannersList}) {
     let swiper = null;
     useEffect(() => {
       if(swiper){
@@ -23,8 +23,8 @@ export default function Banners({banners}) {
     },[])
 
     const renderBtnBannersPage1 = () => {
-      let items = banners.slice(0, 1);
-      return items.map(item => {
+        let items = bannersList && bannersList.slice(0,1);
+          return items && items.map(item => {
           return (
               <Link 
                   to="/eleme/all"
@@ -41,8 +41,8 @@ export default function Banners({banners}) {
       })
   }
   const renderBtnBannersPage2 = () => {
-    let items = banners.slice(1,2);
-    return items.map(item => {
+    let items = bannersList && bannersList.slice(1,2);
+    return items && items.map(item => {
         return (
             <Link 
                 to="/eleme/all"
@@ -59,8 +59,8 @@ export default function Banners({banners}) {
     })
 }
 const renderBtnBannersPage3 = () => {
-  let items = banners.slice(2,3);
-  return items.map(item => {
+  let items = bannersList && bannersList.slice(2,3);
+  return items && items.map(item => {
       return (
           <Link 
               to="/eleme/all"
@@ -77,8 +77,8 @@ const renderBtnBannersPage3 = () => {
   })
 }
 const renderBtnBannersPage4 = () => {
-  let items = banners.slice(3,4);
-  return items.map(item => {
+  let items = bannersList && bannersList.slice(3,4);
+  return items && items.map(item => {
       return (
           <Link 
               to="/eleme/all"
@@ -95,8 +95,8 @@ const renderBtnBannersPage4 = () => {
   })
 }
 const renderBtnBannersPage5 = () => {
-  let items = banners.slice(4,5);
-  return items.map(item => {
+  let items = bannersList && bannersList.slice(4,5);
+  return items && items.map(item => {
       return (
           <Link 
               to="/eleme/all"
@@ -139,6 +139,4 @@ const renderBtnBannersPage5 = () => {
   )
 }
 
-Banners.propTypes = {
-  banners:propTypes.array.isRequired
-}
+export default memo(Banners)

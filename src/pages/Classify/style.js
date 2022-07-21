@@ -91,6 +91,14 @@ export const Wrapper = styled.div`
       background: #f8f8f8;
       border-radius: 0.65rem;
     }   
+    .top-title {
+      display: block;
+      padding-left: 0.416rem;
+      font-size: 0.78rem;
+      text-align: left;
+      text-overflow: ellipsis;
+      color: #000;
+    }
   }
     .title-img-box{
       width: 13.3844rem;
@@ -100,6 +108,7 @@ export const Wrapper = styled.div`
         height: 100%;
       }
     }
+
       
   .menu-top {
     position: relative;

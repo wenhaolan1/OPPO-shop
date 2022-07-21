@@ -42,41 +42,44 @@ const renderSaleSlide = () => {
   return classifyList.map(item => {
     return (
       <div className="menu-box-detail" key={item.id}>
-          <div className="title-img-box">
-            <img class="title-img-box_img" src={item.img} alt />
-          </div>
         <div className="menu-top">
-          <div className="top-title" id={item.id}>
-            {item.name}
+          <div className="title-img-box">
+            <img className="title-img-box_img" src={item.img} />
           </div>
-          <span>{item.description}</span>
-        </div>
+          <div className="top-title" id={item.id}>
+                {item.name}
+            </div>
+            <span>{item.description}</span>
+          </div>
         <div className="menu-box">
           { item.phone && item.phone.map(element => {
             return (
-              <div key={element.id} className="menu-detail">
-                <div className="menu-detail-box">
-                  <div className="menu-item" key={element.id}>
-                    <div className="img-bubble">
-                      <div className="img-box">
-                        <img className="sale-img" src={element.img} alt="" />
+            <><div className="top-title" key={element.title_id}>
+                <span>{element.phone_title}</span>
+              </div><div key={element.id} className="menu-detail">
+
+                  <div className="menu-detail-box">
+                    <div className="menu-item" key={element.id}>
+                      <div className="img-bubble">
+                        <div className="img-box">
+                          <img className="sale-img" src={element.img} alt="" />
+                        </div>
                       </div>
+                      <section>
+                        <p className="fooddetail-info">
+                          <span>{element.name}</span>
+                        </p>
+                        <p className="fooddetail-sale">
+                          <span>{element.introduce}</span>
+                        </p>
+                        <div className="fooddetails-space"></div>
+                        <span className="sale_price">
+                          <span>{element.price}</span>
+                        </span>
+                      </section>
                     </div>
-                    <section>
-                      <p className="fooddetail-info">
-                        <span>{element.name}</span>
-                      </p>
-                      <p className="fooddetail-sale">
-                        <span>{element.introduce}</span>
-                      </p>
-                      <div className="fooddetails-space"></div>
-                      <span className="sale_price">
-                        <span>{element.price}</span>
-                      </span>
-                    </section>
                   </div>
-                </div>
-              </div>
+                </div></>
             );
           })}
         </div>

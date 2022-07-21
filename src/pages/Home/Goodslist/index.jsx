@@ -2,14 +2,13 @@ import React from 'react'
 import './style'
 import { Wrapper } from './style'
 import { Link } from 'react-router-dom'
-import propTypes from 'prop-types'
 
-export default function Goodslist({goodslist}) {
+export default function Goodslist({goodsMenuList}) {
   let phoneData = [],
       otherData = [];
-  if (goodslist.length > 0) {
-      phoneData = goodslist.slice(0, 6)
-      otherData = goodslist.slice(6)
+  if (goodsMenuList.length > 0) {
+      phoneData = goodsMenuList.slice(0, 6)
+      otherData = goodsMenuList.slice(6)
   }
 
   return (
@@ -50,8 +49,4 @@ export default function Goodslist({goodslist}) {
       </div>
     </Wrapper>
   )
-}
-
-Goodslist.propTypes = {
-  goodslist:propTypes.array.isRequired
 }

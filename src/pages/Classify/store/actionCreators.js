@@ -9,7 +9,7 @@ export const getClassifyList = () => {
     return (dispatch) => {
         getClassifyListRequest().then(data => {
             console.log(data,'-------------------')
-            const action = changeClassifyList(data.data.classifylist)
+            const action = changeClassifyList(data.classifylist)
                 dispatch(action)
             console.log(action,'----')
         })

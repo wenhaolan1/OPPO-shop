@@ -1,32 +1,55 @@
 import React, { useState, useEffect} from 'react'
 import { Wrapper } from './style'
+import { connect } from 'react-redux'
 import Search from './Search'
 import Banners from './Banners'
 import Goods from './Goods'
 import Goodslist from './Goodslist'
-import { getBanners, getGoods, getGoodslist } from '../../api/request'
+import { getBannersList, getGoodsList, getGoodsMenuList } from './store/actionCreators'
 
 
-export default function Home() {
-  const [banners, setBanners] = useState([])
-  const [goods, setGoods] = useState([])
-  const [goodslist, setGoodslist] = useState([])
+ function Home(props) {
+  const { bannersList, goodsList, goodsMenuList } = props
+  console.log(goodsMenuList,'iiii')
+  const {
+    getBannersListDispatch,
+    getGoodsListDispatch,
+    getGoodsMenuListDispatch
+  } = props
   useEffect(() => {
-    (async () => {
-      let { data:bannerData } = await getBanners()
-      let { data:goodsData } = await getGoods()
-      let { data:goodslistData } = await getGoodslist()
-      setBanners(bannerData)
-      setGoods(goodsData)
-      setGoodslist(goodslistData)
-    })()
+    getBannersListDispatch()
+    getGoodsListDispatch()
+    getGoodsMenuListDispatch()
   },[])
+ 
   return (
     <Wrapper>
       <Search />
-      <Banners banners={banners}/>
-      <Goods goods={goods}/>
-      <Goodslist goodslist={goodslist}/>
+      <Banners bannersList={bannersList}></Banners>
+      <Goods goodsList={goodsList}></Goods>
+      <Goodslist goodsMenuList={goodsMenuList}/>
     </Wrapper>
   )
 }
+const mapStateToProps = (state) => {
+  return {
+    bannersList: state.home.bannersList,
+    goodsList: state.home.goodsList,
+    goodsMenuList: state.home.goodsMenuList
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getBannersListDispatch() {
+      dispatch(getBannersList())
+    },
+    getGoodsListDispatch() {
+      dispatch(getGoodsList())
+    },
+    getGoodsMenuListDispatch() {
+      dispatch(getGoodsMenuList())
+    }
+  }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(React.memo(Home))

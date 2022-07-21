@@ -2,13 +2,13 @@ import React from 'react'
 import './style'
 import { Wrapper } from './style'
 import { Link } from 'react-router-dom'
-import propTypes from 'prop-types'
+import { memo } from 'react'
 
-export default function Goods({goods}) {
 
+function Goods({goodsList}) {
   return (
     <Wrapper>
-        {goods.map(
+        {goodsList && goodsList.map(
             goods =>
                 <Link
                     className='goodslist' 
@@ -24,8 +24,4 @@ export default function Goods({goods}) {
     </Wrapper>
   )
 }
-
-Goods.propTypes = {
-    goods:propTypes.array.isRequired
-  }
-  
+export default memo(Goods)
