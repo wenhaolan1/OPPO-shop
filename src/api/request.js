@@ -1,14 +1,13 @@
-import axios from 'axios'
+import { axiosInstance } from "./config";
 
+export const getBannersRequest = () => 
+   axiosInstance.get('/banners')
 
-export const getBanners = () => 
-    axios.get('https://www.fastmock.site/mock/b382251bce55be951b9acb71a1348802/beers/api/request/banners')
+export const getGoodsRequest = () => 
+    axiosInstance.get('/Goods')
 
-export const getGoods = () => 
-    axios.get('https://www.fastmock.site/mock/b382251bce55be951b9acb71a1348802/beers/api/request/Goods')
-
-export const getGoodslist = () => 
-    axios.get('https://www.fastmock.site/mock/b382251bce55be951b9acb71a1348802/beers/api/request/Goodslist')
+export const getGoodsMenuListRequest = () => 
+    axiosInstance.get('/GoodsMenu')
 
 export const getClassifyListRequest = () =>
-    axios.get('https://www.fastmock.site/mock/b382251bce55be951b9acb71a1348802/beers/api/request/classify')
+    axiosInstance.get('/classify')
